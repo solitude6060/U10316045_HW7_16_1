@@ -7,11 +7,11 @@ import java.awt.event.*;
 public class RandomCard extends JFrame {
 			
 	public RandomCard(){
-		int[] deck = new int[54];//int array about deck
+		final int[] deck = new int[54];//int array about deck
 		
 		//initialize the deck
 		for (int i = 0; i < deck.length; i++){
-			deck[i] = i;
+			deck[i] = i+1;
 		}
 		//new 4 image icon
 		ImageIcon card1 = new ImageIcon("card/"+deck[1]+".png");
@@ -20,10 +20,10 @@ public class RandomCard extends JFrame {
 		ImageIcon card4 = new ImageIcon("card/"+deck[4]+".png");
 		
 		//new 4 label
-		JLabel CardLabel1 = new JLabel();
-		JLabel CardLabel2 = new JLabel();
-		JLabel CardLabel3 = new JLabel();
-		JLabel CardLabel4 = new JLabel();
+		final JLabel CardLabel1 = new JLabel();
+		final JLabel CardLabel2 = new JLabel();
+		final JLabel CardLabel3 = new JLabel();
+		final JLabel CardLabel4 = new JLabel();
 		
 		//set the four label
 		CardLabel1.setIcon(card1);
@@ -52,7 +52,7 @@ public class RandomCard extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e){
 				//shuffle the deck
-				for (int i = 0; i < deck.length; i++) {
+				for (int i = 1; i < deck.length; i++) {
 					int index = (int)(Math.random() * deck.length);
 					int temp = deck[i];
 					deck[i] = deck[index];
